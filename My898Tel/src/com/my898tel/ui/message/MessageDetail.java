@@ -78,6 +78,7 @@ public class MessageDetail extends BaseActivity {
 
 			@Override
 			public void onClick(View v) {
+                hideSoftWindow();
 				finish();
 			}
 		});

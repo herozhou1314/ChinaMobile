@@ -17,7 +17,7 @@ import com.my898tel.ui.dialog.DialogSelectMoney;
 /**
  * Created by shengliu on 14-10-6.
  */
-public class ActivityBank extends BaseActivity {
+public class ActivityBank extends SelectContactActivity {
 
     private Button btn_select_money;
     private EditText et_tel;
@@ -43,6 +43,8 @@ public class ActivityBank extends BaseActivity {
                 dialogSelectMoney.show(getSupportFragmentManager(), DialogSelectMoney.class.getName());
             }
         });
+
+        selectContactListener();
 
     }
 

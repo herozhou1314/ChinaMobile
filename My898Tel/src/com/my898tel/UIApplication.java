@@ -29,6 +29,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.Volley;
 import com.baidu.frontia.FrontiaApplication;
 import com.my898tel.moble.ContactBean;
+import com.my898tel.receiver.SelectDialog;
 import com.my898tel.util.Unit_XML;
 import com.my898tel.util.Util_file;
 
@@ -104,12 +105,10 @@ public class UIApplication extends FrontiaApplication {
             Toast.makeText(context, "软件已经被停用", Toast.LENGTH_SHORT).show();
             return;
         }
-        String cornet = context.getResources().getString(R.string.call_need_add);
-        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phone));
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(intent);
 
         Unit_XML.saveIsAppCall(true);
+
+        SelectDialog.getInstance().createView(context,phone);
 
 
     }

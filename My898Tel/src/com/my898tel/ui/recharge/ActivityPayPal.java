@@ -15,11 +15,10 @@ import com.my898tel.ui.dialog.DialogSelectMoney;
 /**
  * Created by shengliu on 14-10-6.
  */
-public class ActivityPayPal extends BaseActivity {
+public class ActivityPayPal extends SelectContactActivity {
 
     private Button btn_select_money;
 
-    private EditText et_tel;
     @Override
     protected void onCreate(Bundle arg0) {
         super.onCreate(arg0);
@@ -41,6 +40,9 @@ public class ActivityPayPal extends BaseActivity {
                 dialogSelectMoney.show(getSupportFragmentManager(), DialogSelectMoney.class.getName());
             }
         });
+        selectContactListener();
+
+
     }
 
     public void showWeb(View view){

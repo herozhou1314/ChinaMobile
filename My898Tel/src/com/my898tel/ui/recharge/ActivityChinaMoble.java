@@ -19,12 +19,11 @@ import com.my898tel.ui.dialog.DialogSelectMoney;
  *
  * @author liusheng
  */
-public class ActivityChinaMoble extends BaseActivity {
+public class ActivityChinaMoble extends SelectContactActivity {
 
 
     private Button btn_select_money;
 
-    private EditText et_tel;
 
     private EditText et_cardno;
 
@@ -57,6 +56,7 @@ public class ActivityChinaMoble extends BaseActivity {
             }
         });
 
+        selectContactListener();
 
         setTitleNoRightBtn(R.string.china_moble_title);
     }

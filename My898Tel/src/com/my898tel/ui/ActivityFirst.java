@@ -29,4 +29,10 @@ public class ActivityFirst extends  BaseActivity {
             }
         });
     }
+
+    public void goToRegister(View view){
+        Intent intent = new Intent();
+        intent.setClass(ActivityFirst.this, RegisterActivity.class);
+        startActivity(intent);
+    }
 }

@@ -145,7 +145,9 @@ public class FragmentMessage extends BaseFragment {
 
 	}
 
-	public void setAdatper() {
+
+
+    public void setAdatper() {
 		if (maps != null && maps.size() > 0) {
 			mAdapter = new FragmentMessageAdapter(maps, getActivity());
 			mAdapter.setGoToNext(new GoToNextPage<ArrayList<SmsInfo>>() {

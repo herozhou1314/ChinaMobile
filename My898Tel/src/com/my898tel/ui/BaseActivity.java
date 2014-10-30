@@ -11,7 +11,9 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -105,6 +107,9 @@ public class BaseActivity extends FragmentActivity implements Consts,Response.Er
 	}
 
 	private void setTopValue() {
+
+        et_hide = (EditText)findViewById(R.id.et_hide_top);
+
 		tv_title = (TextView) findViewById(R.id.tv_title);
 
 		tv_over = (TextView) findViewById(R.id.tv_over);
@@ -116,6 +121,7 @@ public class BaseActivity extends FragmentActivity implements Consts,Response.Er
         ib_left.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                hideSoftWindow();
                 finish();
             }
         });
@@ -222,4 +228,18 @@ public class BaseActivity extends FragmentActivity implements Consts,Response.Er
         builder.show(getSupportFragmentManager(),DialogCustomeFragment.class.getName());
     }
 
+    private EditText et_hide;
+
+    /**
+     * 隐藏软键盘
+     *
+     */
+    public void hideSoftWindow() {
+
+        if(et_hide == null)
+            return;
+
+        ((InputMethodManager) getSystemService(INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(et_hide.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        et_hide.requestFocus();
+    }
 }

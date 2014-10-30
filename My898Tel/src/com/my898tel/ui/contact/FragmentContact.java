@@ -16,6 +16,7 @@ import com.my898tel.ui.widget.QuickAlphabeticBar;
 import com.my898tel.util.pinyin.PinYin;
 import com.tjerkw.slideexpandable.library.SlideExpandableListAdapter;
 
+import android.app.Activity;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -253,7 +255,11 @@ public class FragmentContact extends SearchBaseFragment {
     }
 
 
+    @Override
+    public void onStop() {
+        super.onStop();
 
-
-
+        ((InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(et_search_content.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        et_search_content.requestFocus();
+    }
 }

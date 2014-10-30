@@ -29,25 +29,22 @@ public class OutgoingCallReceiver extends BroadcastReceiver {
 		}
 		
 		String phoneNumber = getResultData();
-		String cornet = context.getResources().getString(R.string.call_need_add);
+
 
         String model = Build.MODEL;
-        //软件内拨号 必须弹窗 软件外宁算
-        if(Unit_XML.readAppcALL()){
-            Unit_XML.saveIsAppCall(false);
-            alert(phoneNumber,cornet,context);
-        }else{
-            Unit_XML.saveIsAppCall(false);
-            if(model.contains("MI") || model.contains("MX")){
-            }else{
-                alert(phoneNumber,cornet,context);
+        //如果属于软件外拨号 如果属于属于魅族或者小米 不弹窗
+        if(!Unit_XML.readAppcALL()){
+            if(!model.startsWith("MI") && !model.startsWith("MX")){
+                alert(phoneNumber,context);
             }
         }
+        Unit_XML.saveIsAppCall(false);
 
 
 	}
 
-    public void alert(String phoneNumber,String cornet,Context context){
+    public  void alert(String phoneNumber,Context context){
+        String cornet = context.getResources().getString(R.string.call_need_add);
         if(Unit_XML.getLocalCall().equals("99999")){
             Unit_XML.saveLocalCall("");
             return;

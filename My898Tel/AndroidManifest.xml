@@ -90,6 +90,7 @@
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
             android:name="com.my898tel.ui.setting.ActivitySetting"
+            android:windowSoftInputMode="adjustPan|stateHidden"
             android:screenOrientation="portrait" />
 
         <activity

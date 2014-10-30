@@ -5,6 +5,7 @@ import java.util.List;
 import com.my898tel.R;
 import com.my898tel.ui.dialog.DialogLoading;
 import com.my898tel.util.StatWrapper;
+import com.my898tel.util.Unit_XML;
 
 import android.app.Dialog;
 import android.app.PendingIntent;
@@ -53,6 +54,18 @@ public class RegisterActivity extends BaseActivity implements  View.OnClickListe
         });
 
         setTitleNoRightBtn(R.string.user_register);
+
+
+        if(Unit_XML.getOpenCount() == 0){
+            ib_left.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intentMain = new Intent(RegisterActivity.this, MainActivity.class);
+                    startActivity(intentMain);
+                }
+            });
+        }
+        Unit_XML.saveOpenCount();
 
 	}
 

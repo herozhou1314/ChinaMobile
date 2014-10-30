@@ -110,14 +110,11 @@ public class SelectDialog {
 				Unit_XML.saveLocalCall("");
 				String cornet = mContext.getResources().getString(R.string.call_need_add);
 				
-				if(phoneNum.startsWith("+86"))
+				if(phoneNum.startsWith("+86") ||phoneNum.startsWith("86") )
 				{
 					phoneNum = phoneNum.replace("+86", "");
 				}
-				if(phoneNum.startsWith("86"))
-				{
-					phoneNum = phoneNum.replace("86", "");
-				}
+
 				callPhone(mContext, cornet + ",9" + phoneNum + "#");
 				insertCallLog(mContext, phoneNum, "10", Integer.toString(2), "1", 0L);
 			}
