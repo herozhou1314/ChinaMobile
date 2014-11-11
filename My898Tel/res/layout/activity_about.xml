@@ -78,13 +78,7 @@
                 android:visibility="gone" />
 
 
-            <ImageView
-                android:id="@+id/iv_line1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorf5f5f5"
-                android:paddingLeft="@dimen/w_24"
-                android:src="@drawable/line" />
+
 
             <TextView
                 android:layout_width="wrap_content"
